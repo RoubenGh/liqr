@@ -1,6 +1,50 @@
-.button {
+.login-button {
 	cursor: pointer;
 	font-size: 1.5rem;
 	background-color: transparent;
 	color: white;
+	border: none;
+	font-weight: bold;
+	text-shadow: 2px 2px black;
+}
+
+.loginform-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 25%;
+	margin-left: 25%;
+	height: 93.16vh;
+}
+
+.login-password-container {
+	padding: 2rem;
+}
+
+input {
+	font-size: x-large;
+	border-radius: 8px;
+}
+
+.errors {
+	font-size: x-large;
+	padding-bottom: 2rem;
+	color: white;
+	font-weight: bolder;
+	text-shadow: 2px 2px black;
+}
+
+.background-image {
+	background: url('https://images.unsplash.com/photo-1526894198609-10b3cdf45c52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhbXBhZ25lJTIwY2hlZXJzfGVufDB8fDB8fA%3D%3D&w=1000&q=80')
+		no-repeat center center fixed;
+		background-size: cover;
+		height: 100%;
+		overflow: hidden;
+
+}
+
+
+
+html {
+	background-color: rgb(8, 27, 44);
 }
