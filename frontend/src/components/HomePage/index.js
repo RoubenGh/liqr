@@ -18,6 +18,7 @@ function HomePage() {
 		section.style.backgroundImage = bg;
 	};
 
+	
 	setInterval(changeBg, 2000);
 
 	return (
