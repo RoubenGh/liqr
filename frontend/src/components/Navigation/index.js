@@ -32,7 +32,7 @@ function Navigation({ isLoaded }) {
 	return (
 		<nav className="navBar">
 			<NavLink exact to="/" className="home-button">
-				Home
+				Liqr
 			</NavLink>
 			{isLoaded && sessionLinks}
 		</nav>
