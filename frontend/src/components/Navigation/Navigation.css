@@ -13,8 +13,9 @@
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	background-color: rgb(8, 27, 44);
+	background: rgba(8, 27, 44);
 	margin-bottom: 6px;
+
 }
 
 .home-button {
@@ -26,14 +27,13 @@
 	color: white;
 	text-decoration: none;
 	margin-left: 1rem;
-	font-family: Arial, Helvetica, sans-serif ;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 }
 
 .signup-container {
 	margin-left: 1rem;
 	margin-right: 1rem;
-
 }
 
 .buttons-container {

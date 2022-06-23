@@ -32,11 +32,13 @@ function SignupFormPage() {
 	};
 
 	return (
-		<div className='signup-background-image'>
+		<div className="signup-background-image">
 			<form onSubmit={handleSubmit} className="signup-form-container">
 				<ul>
 					{errors.map((error, idx) => (
-						<li className="errors-signup" key={idx}>{error}</li>
+						<li className="errors-signup" key={idx}>
+							{error}
+						</li>
 					))}
 				</ul>
 
@@ -75,10 +77,11 @@ function SignupFormPage() {
 					placeholder="Confirm Password"
 					className="input-field"
 				/>
-
-				<button className="button" type="submit">
-					Sign Up
-				</button>
+				<div className='signup-button-bgcolor'>
+					<button className="button" type="submit">
+						Sign Up
+					</button>
+				</div>
 			</form>
 		</div>
 	);
