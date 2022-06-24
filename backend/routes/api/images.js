@@ -5,6 +5,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const db = require('../../db/models');
+const { application } = require('express');
 
 const validationErrors = [
 	check('title')
