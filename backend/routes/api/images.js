@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
-const handleValidationErrors = require('../../utils/validation');
+const { handleValidationErrors } = require('../../utils/validation');
 
 const db = require('../../db/models');
 
@@ -24,17 +24,68 @@ router.get(
 );
 
 router.get(
-	'/:id(\\d+)', asyncHandler(async (req, res) => {
+	'/:id(\\d+)',
+	asyncHandler(async (req, res) => {
 		const id = parseInt(req.params.id, 10);
 		const image = await db.Image.findAll({
 			where: { id },
-			include: User,
+			include: db.User,
 		});
 		return res.json(image);
 	})
 );
 
-// router.get('/image/:id/');
+router.post(
+	'/',
+	validationErrors,
+	asyncHandler(async (req, res) => {
+		// console.log('here')
+		const { title, content, userId, imageUrl } = req.body;
+		// console.log('123123123123', req.body)
+		const image = await db.Image.create({
+			title,
+			content,
+			userId,
+			imageUrl,
+		});
+		return res.json(image);
+	})
+);
 
+router.put(
+	'/:id(\\d+)',
+	validationErrors,
+	asyncHandler(async (req, res) => {
+		const id = parseInt(req.params.id, 10);
+		const { title, content, imageUrl } = req.body;
+		const image = await db.Image.findByPk(id);
+		if (!image) {
+			return res.status(404).json({
+				message: 'Image not found',
+			});
+		}
+		await image.update({
+			title,
+			content,
+			imageUrl,
+		});
+		return res.json(image);
+	})
+);
 
-module.exports = router
+router.delete(
+	'/:id(\\d+)',
+	asyncHandler(async (req, res) => {
+		const id = parseInt(req.params.id, 10);
+		const image = await db.Image.findByPk(id);
+		if (!image) {
+			return res.status(404).json({
+				message: 'Image not found',
+			});
+		}
+		await image.destroy();
+		return res.json({ message: 'Image deleted' });
+	})
+);
+
+module.exports = router;
