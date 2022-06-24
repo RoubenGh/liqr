@@ -1,51 +1,119 @@
- .tester{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+.tester {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
- .home-section {
-    /* position: absolute; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: url('https://w.wallhaven.cc/full/x1/wallhaven-x1z5dv.jpg') no-repeat center center fixed;;
+@keyframes slide {
+	0% {
+		background-image: url(https://thecocktailsociety.uk/wp-content/uploads/2021/05/bar-bar-spirits-2048x1365.jpg);
+		animation-duration: 5s;
+	}
+	12.5% {
+		background-image: url(https://images2.alphacoders.com/109/1093754.jpg);
+		animation-duration: 5s;
+	}
+	25% {
+		background-image: url(https://motaen.com/upload/wallpapers/2018/07/27/16/55/58072/drinks-beer-alcohol-food.jpg);
+		animation-duration: 5s;
+	}
+	37.5% {
+		background-image: url(https://thecocktailsociety.uk/wp-content/uploads/2021/08/five-easy-alcohol-only-cocktails-2048x1365.jpg);
+		animation-duration: 5s;
+	}
+
+	50% {
+		background-image: url(http://firesidepublichouse.com/wp-content/uploads/2015/07/beerlist-2048x1365.jpg);
+		animation-duration: 5s;
+	}
+	62.5% {
+		background-image: url(https://c.wallhere.com/photos/ec/41/books_leaves_alcohol_bottles_still_life-1478605.jpg!d);
+		animation-duration: 5s;
+	}
+	75% {
+		background-image: url(https://c.wallhere.com/photos/b4/a2/bottles_alcohol_Dalwhinnie_whisky_glass_drinking_glass_simple_background_Scotch-1960725.jpg!d);
+		animation-duration: 5s;
+	}
+	87.5% {
+		background-image: url(https://c.wallhere.com/photos/44/44/wine_cellar_bottles_alcohol_collection_wine_glasses-783260.jpg!d);
+		animation-duration: 5s;
+	}
+}
+
+.home-section {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: url('https://w.wallhaven.cc/full/x1/wallhaven-x1z5dv.jpg')
+		no-repeat center center fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	background-blend-mode: darken;
+	animation: slide 30s infinite linear;
+    animation-timing-function:cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+.home-h2 {
+	font-size: 4vw;
+	color: black;
+	background-color: white;
+	mix-blend-mode: screen;
+	padding: 20px 40px;
+	margin: 0;
+	text-align: center;
+	text-shadow: 4px 4px black;
+}
+.home-p {
+	font-size: 2vw;
+	color: black;
+	background-color: white;
+	padding: 20px 40px;
+	mix-blend-mode: screen;
+	margin: 0;
+	text-align: center;
+	text-shadow: 4px 4px black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+.text-container {
+	display: flex;
+	flex-direction: column;
+	margin-right: 25%;
+	margin-left: 25%;
+}
+
+.button-start-for-free {
+    color: black;
+	background-color: white;
+	margin: 0;
+    font-size:24px;
+    border: none;
+    font-weight: 800;
+    width: 200px;
+    height: 64px;
+    line-height: 64px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.sff-btn {
+    color: black;
+	background-color: white;
+	margin: 0;
+    border: none;
+    height: 64px;
+    line-height: 64px;
     display: flex;
     justify-content: center;
+    width: 200px;
     align-items: center;
-    background-size: cover;
-    background-blend-mode: darken;
-    transition: 3s;
-
-}
-
-.home-h2 {
-    font-size: 4vw;
-    color: black;
-    background-color: white;
-    mix-blend-mode: screen;
-    padding: 20px 40px;
-    margin: 0;
-    text-align: center;
-    text-shadow: 4px 4px black;
-}
-
-.home-p {
-    font-size: 2vw;
-    color: black;
-    background-color: white;
-    padding: 20px 40px;
-    mix-blend-mode: screen;
-    margin: 0;
-    text-align: center;
-    text-shadow: 4px 4px black;
-}
-
-.text-container {
-    display: flex;
-    flex-direction: column;
-    margin-right: 25%;
     margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 1rem;
 }
