@@ -1,8 +1,8 @@
 import './HomePage.css';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 function HomePage() {
-	const history = useHistory();
+	// const history = useHistory();
 
 	return (
 		<div className="tester">
