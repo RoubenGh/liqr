@@ -5,7 +5,6 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const db = require('../../db/models');
-const { application } = require('express');
 
 const validationErrors = [
 	check('title')
@@ -15,6 +14,8 @@ const validationErrors = [
 		.withMessage('Title must be between 1 and 75 characters'),
 	handleValidationErrors,
 ];
+
+/* IMAGES */
 
 router.get(
 	'/',
@@ -28,7 +29,7 @@ router.get(
 	'/:id(\\d+)',
 	asyncHandler(async (req, res) => {
 		const id = parseInt(req.params.id, 10);
-		const image = await db.Image.findAll({
+		const image = await db.Image.findOne({
 			where: { id },
 			include: db.User,
 		});
@@ -40,9 +41,7 @@ router.post(
 	'/',
 	validationErrors,
 	asyncHandler(async (req, res) => {
-		// console.log('here')
 		const { title, content, userId, imageUrl } = req.body;
-		// console.log('123123123123', req.body)
 		const image = await db.Image.create({
 			title,
 			content,
@@ -88,5 +87,8 @@ router.delete(
 		return res.json({ message: 'Image deleted' });
 	})
 );
+
+
+/* COMMENTS */
 
 module.exports = router;

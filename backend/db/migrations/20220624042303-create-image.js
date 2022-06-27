@@ -23,15 +23,17 @@ module.exports = {
 			},
 			content: {
 				allowNull: true,
-				type: Sequelize.TEXT(255)
+				type: Sequelize.STRING(500)
 			},
 			createdAt: {
 				allowNull: false,
 				type: Sequelize.DATE,
+				defaultValue: Sequelize.fn("now"),
 			},
 			updatedAt: {
 				allowNull: false,
 				type: Sequelize.DATE,
+				defaultValue: Sequelize.fn("now"),
 			},
 		});
 	},
