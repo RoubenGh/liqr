@@ -16,6 +16,8 @@ const validationErrors = [
 	handleValidationErrors,
 ];
 
+/* IMAGES */
+
 router.get(
 	'/',
 	asyncHandler(async (req, res) => {
@@ -28,7 +30,7 @@ router.get(
 	'/:id(\\d+)',
 	asyncHandler(async (req, res) => {
 		const id = parseInt(req.params.id, 10);
-		const image = await db.Image.findAll({
+		const image = await db.Image.findOne({
 			where: { id },
 			include: db.User,
 		});
@@ -88,5 +90,8 @@ router.delete(
 		return res.json({ message: 'Image deleted' });
 	})
 );
+
+
+/* COMMENTS */
 
 module.exports = router;

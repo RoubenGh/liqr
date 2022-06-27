@@ -24,8 +24,20 @@ function LoginFormPage() {
 		);
 	};
 
+	const demo = (e) => {
+		e.preventDefault();
+		const demoCredential = 'Demo-lition';
+		const demoPassword = 'password';
+		return dispatch(
+			sessionActions.login({
+				credential: demoCredential,
+				password: demoPassword,
+			})
+		);
+	};
+
 	return (
-		<div className='background-image'>
+		<div className="background-image">
 			<form className="loginform-container" onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (
@@ -52,9 +64,14 @@ function LoginFormPage() {
 						placeholder="Password"
 					/>
 				</div>
-				<button className="login-button" type="submit">
-					Log In
-				</button>
+				<div>
+					<button className="login-button" type="submit">
+						Log In
+					</button>
+					<button onClick={demo} className="demo-button" type="submit">
+						Demo User
+					</button>
+				</div>
 			</form>
 		</div>
 	);

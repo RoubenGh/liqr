@@ -7,6 +7,7 @@ const Images = () => {
 	const dispatch = useDispatch();
 	const imagesObject = useSelector((state) => state.images);
 	const images = Object.values(imagesObject);
+	// console.log(images, '111111111111')
 	const [imagesState, setImagesState] = useState(false);
 
 	useEffect(() => {
@@ -16,22 +17,16 @@ const Images = () => {
 	return (
 		<div>
 			<h1>Images</h1>
-			{/* <ul>
+			<div>
 				{images.map((image) => (
-					<li key={image.id}>
-						<NavLink to={`/images/${image.id}`}>{image.title}</NavLink>
-					</li>
-				))}
-			</ul>
-			<Route
-				path="/images/:id"
-				render={({ match }) => (
-					<div>
-						<h2>{images[match.params.id].title}</h2>
-						<img src={images[match.params.id].imageUrl} />
+					<div key={image.id}>
+						<h2>{image.title}</h2>
+						<a href={`/images/${image.id}`}>
+							<img src={image.imageUrl} title={image.title} />
+						</a>
 					</div>
-				)}
-			/> */}
+				))}
+			</div>
 		</div>
 	);
 };
