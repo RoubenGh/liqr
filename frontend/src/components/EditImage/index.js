@@ -18,7 +18,7 @@ const EditImage = () => {
 
 	const history = useHistory();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async(e) => {
 		e.preventDefault();
 		if (!user) history.push('/login');
 		const errors = [];
@@ -44,7 +44,7 @@ const EditImage = () => {
             id: image?.id
 		};
         console.log(data)
-		dispatch(imagesActions.editSingleImage(data))
+		await dispatch(imagesActions.editSingleImage(data))
 		// .then(() => dispatch(imagesActions.getImagesAsync))
 		history.push(`/images`);
 	};
