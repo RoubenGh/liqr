@@ -48,8 +48,8 @@
 	left: 0;
 	width: 100%;
 	height: 100vh;
-	background: url('https://w.wallhaven.cc/full/x1/wallhaven-x1z5dv.jpg')
-		no-repeat center center fixed;
+	/* background: url('https://w.wallhaven.cc/full/x1/wallhaven-x1z5dv.jpg')
+		no-repeat center center fixed; */
 	display: flex;
 	justify-content: center;
 	align-items: center;

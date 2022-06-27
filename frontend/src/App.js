@@ -9,6 +9,7 @@ import HomePage from './components/HomePage/';
 import Images from './components/Images';
 import SingleImage from './components/SingleImage';
 import UploadImage from './components/UploadImage';
+import EditImage from './components/EditImage';
 
 function App() {
 	const dispatch = useDispatch();
@@ -34,16 +35,19 @@ function App() {
 					<Route exact path="/images">
 						<Images />
 					</Route>
-					<Route path="/images/:id">
+					<Route exact path="/images/:id">
 						<SingleImage />
 					</Route>
-					<Route exact path='/upload' >
-						< UploadImage />
+					<Route exact path="/upload">
+						<UploadImage />
+					</Route>
+					<Route exact path="/images/:id/edit">
+						<EditImage />
 					</Route>
 					<Route>
 						<h1> Sorry, you've been cut off.</h1>
-						<img src='https://www.communitycare.com/DynamicFile/Alcohol-Awareness-Month-Blog-1200x600.png' />
-						</Route>
+						<img src="https://www.communitycare.com/DynamicFile/Alcohol-Awareness-Month-Blog-1200x600.png" />
+					</Route>
 				</Switch>
 			)}
 		</>

@@ -14,7 +14,25 @@ const UploadImage = () => {
 
 	const history = useHistory();
 
-	useEffect(() => {
+	// useEffect(() => {
+	// 	if (!user) (history.push('/login'))
+	// 	const errors = [];
+
+	// 	if (!title.length) errors.push('Title is required');
+	// 	if (title.length > 75)
+	// 		errors.push('Title must be less than 75 characters');
+	// 	if (!imageUrl.length) errors.push('Image URL is required');
+	// 	if (!imageUrl.startsWith('http') && !imageUrl.startsWith('https'))
+	// 		errors.push('Image URL must start with http or https');
+	// 	if (imageUrl.lenth > 255) errors.push('Image URL is too long');
+	// 	if (content.length > 500) errors.push('Content is too long');
+
+	// 	setValidationErrors(errors);
+	// }, [title, imageUrl, content]);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (!user) (history.push('/login'))
 		const errors = [];
 
 		if (!title.length) errors.push('Title is required');
@@ -23,19 +41,20 @@ const UploadImage = () => {
 		if (!imageUrl.length) errors.push('Image URL is required');
 		if (!imageUrl.startsWith('http') && !imageUrl.startsWith('https'))
 			errors.push('Image URL must start with http or https');
-		if (imageUrl.lenth > 255) errors.push('Image URL is too long');
+		if (imageUrl.length > 255) errors.push('Image URL is too long');
 		if (content.length > 500) errors.push('Content is too long');
 
-		setValidationErrors(errors);
-	}, [title, imageUrl, content]);
+		if (errors.length){
+			setValidationErrors(errors)
+			return
+		}
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
 		const data = {
 			title,
 			imageUrl,
 			content,
 			userId: user?.id,
+
 		};
 		dispatch(imagesActions.uploadImage(data));
 		history.push('/images');
@@ -56,14 +75,14 @@ const UploadImage = () => {
 					type="text"
 					placeholder="Title"
 					value={title}
-					required
+
 					onChange={(e) => setTitle(e.target.value)}
 				/>
 				<input
 					type="text"
 					placeholder="Image URL"
 					value={imageUrl}
-					required
+
 					onChange={(e) => setImageUrl(e.target.value)}
 				/>
 				<textarea
