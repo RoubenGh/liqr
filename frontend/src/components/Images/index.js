@@ -1,14 +1,11 @@
 import { getImagesAsync } from '../../store/images';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Route } from 'react-router-dom';
 
 const Images = () => {
 	const dispatch = useDispatch();
 	const imagesObject = useSelector((state) => state.images);
 	const images = Object.values(imagesObject);
-	// console.log(images, '111111111111')
-	const [imagesState, setImagesState] = useState(false);
 
 	useEffect(() => {
 		dispatch(getImagesAsync());

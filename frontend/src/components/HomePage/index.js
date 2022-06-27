@@ -1,8 +1,6 @@
 import './HomePage.css';
-// import { useHistory } from 'react-router-dom';
 
 function HomePage() {
-	// const history = useHistory();
 
 	return (
 		<div className="tester">
@@ -13,12 +11,6 @@ function HomePage() {
 						Join the Liqr community, home to tens of billions of images
 						shared by alcohol enthusiasts.
 					</p>
-					{/* <button
-						className="button-start-for-free"
-						onClick={() => history.push('/signup')}
-					>
-						Start for free
-					</button> */}
 				</div>
 			</section>
 		</div>

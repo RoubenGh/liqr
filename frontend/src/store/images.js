@@ -26,9 +26,9 @@ const editImage = (image) => ({
 	image,
 });
 
-const deleteImage = (image) => ({
+const deleteImage = (id) => ({
 	type: DELETE_IMAGE,
-	image,
+	id,
 });
 
 /* THUNKS */
@@ -97,6 +97,15 @@ export const editSingleImage = (image) => async (dispatch) => {
 	}
 };
 
+export const deleteSingleImage = (id) => async(dispatch) => {
+	const response = await csrfFetch(`/api/images/${id}`, {
+		method:"DELETE"
+	})
+	if (response.ok) {
+		const data = await response.json();
+		dispatch(deleteImage(data.id))
+	}
+}
 /* REDUCERS */
 
 const initialState = {};
@@ -105,22 +114,19 @@ const imageReducer = (state = initialState, action) => {
 	let newState;
 	switch (action.type) {
 		case GET_IMAGES:
-			return { ...state, ...action.images };
+			newState = { ...state };
+			action.images.forEach((image) => {
+				newState[image.id] = image;
+			});
+			return newState;
 		case GET_IMAGE:
-			return { ...state, ...action.image };
+			return { ...state, [action.image.id]: action.image }
 		case ADD_IMAGE:
-			if (!state[action.image.id]) {
-				newState = { ...state, [action.image.id]: action.image };
-			}
-			return newState;
+			return { ...state, [action.image.id]: action.image };
 		case EDIT_IMAGE:
-			// delete (newState)
-			// console.log(newState)
-			// return { ...state, [action.image.id]: action.image };
-            // delete newState[action.imageId]
-			newState = { ...state, [action.image.id]: { ...action.image } };
-			return newState;
-		// case DELETE_IMAGE:
+			return { ...state, [action.image.id]: { ...action.image } };
+		case DELETE_IMAGE:
+			return delete { ...state, [action.id]: action.id };
 		default:
 			return state;
 	}

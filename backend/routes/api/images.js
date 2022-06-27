@@ -5,7 +5,6 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const db = require('../../db/models');
-const { application } = require('express');
 
 const validationErrors = [
 	check('title')
@@ -42,9 +41,7 @@ router.post(
 	'/',
 	validationErrors,
 	asyncHandler(async (req, res) => {
-		// console.log('here')
 		const { title, content, userId, imageUrl } = req.body;
-		// console.log('123123123123', req.body)
 		const image = await db.Image.create({
 			title,
 			content,

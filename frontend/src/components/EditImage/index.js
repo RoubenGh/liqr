@@ -1,14 +1,12 @@
 import * as imagesActions from '../../store/images';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 const EditImage = () => {
 	const dispatch = useDispatch();
-	const  image  = useParams();
-    console.log(image.id)
+	const image = useParams();
 
-    // console.log(useParams())
 	const user = useSelector((state) => state.session.user);
 
 	const [title, setTitle] = useState('');
@@ -18,7 +16,7 @@ const EditImage = () => {
 
 	const history = useHistory();
 
-	const handleSubmit = async(e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!user) history.push('/login');
 		const errors = [];
@@ -41,11 +39,10 @@ const EditImage = () => {
 			title,
 			imageUrl,
 			content,
-            id: image?.id
+			id: image?.id,
 		};
-        console.log(data)
-		await dispatch(imagesActions.editSingleImage(data))
-		// .then(() => dispatch(imagesActions.getImagesAsync))
+		console.log(data);
+		await dispatch(imagesActions.editSingleImage(data));
 		history.push(`/images`);
 	};
 
