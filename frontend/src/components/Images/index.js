@@ -1,6 +1,7 @@
 import { getImagesAsync } from '../../store/images';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 const Images = () => {
 	const dispatch = useDispatch();
@@ -18,9 +19,9 @@ const Images = () => {
 				{images.map((image) => (
 					<div key={image.id}>
 						<h2>{image.title}</h2>
-						<a href={`/images/${image.id}`}>
+						<NavLink exact to={`/images/${image.id}`}>
 							<img src={image.imageUrl} title={image.title} />
-						</a>
+						</NavLink>
 					</div>
 				))}
 			</div>

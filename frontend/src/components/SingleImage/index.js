@@ -2,8 +2,9 @@ import { getSingleImage } from '../../store/images';
 import { deleteSingleImage } from '../../store/images';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, NavLink } from 'react-router-dom';
 import './SingleImage.css';
+
 
 const SingleImage = () => {
 	const history = useHistory();
@@ -32,7 +33,7 @@ const SingleImage = () => {
 				<p className="username">{oneImage?.User?.username}</p>
 				{oneImage?.User?.username === account?.username ? (
 					<button type="submit">
-						<a href={`/images/${id}/edit`}>Edit</a>
+						<NavLink exact to={`/images/${id}/edit`}>Edit</NavLink>
 					</button> ) : (<></>)}
 					{oneImage?.User?.username === account?.username ? (
 				<button onClick={ImageDeleter}>Delete</button>) : (<></>)}
