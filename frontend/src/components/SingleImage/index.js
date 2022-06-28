@@ -16,7 +16,7 @@ const SingleImage = () => {
 		dispatch(getSingleImage(id));
 	}, [id, dispatch]);
 
-	const ImageDeleter = async(id) => {
+	const ImageDeleter = async(e) => {
 		await dispatch(deleteSingleImage(id));
 		history.push('/images');
 	};
@@ -35,7 +35,7 @@ const SingleImage = () => {
 						<a href={`/images/${id}/edit`}>Edit</a>
 					</button> ) : (<></>)}
 					{oneImage?.User?.username === account?.username ? (
-				<button onClick={() => ImageDeleter(id)}>Delete</button>) : (<></>)}
+				<button onClick={ImageDeleter}>Delete</button>) : (<></>)}
 			</div>
 		</div>
 	);
