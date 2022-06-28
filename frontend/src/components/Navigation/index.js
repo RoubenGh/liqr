@@ -35,9 +35,9 @@ function Navigation({ isLoaded }) {
 				Liqr
 			</NavLink>
 			{sessionUser ? (
-				<NavLink exact to="/upload" className="upload-button">
-					Upload
-				</NavLink>
+					<NavLink exact to="/upload" className="upload-button">
+						Upload
+					</NavLink>
 			) : (
 				<NavLink exact to="/login" className="upload-button"></NavLink>
 			)}
