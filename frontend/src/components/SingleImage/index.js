@@ -16,8 +16,8 @@ const SingleImage = () => {
 		dispatch(getSingleImage(id));
 	}, [id, dispatch]);
 
-	const ImageDeleter = (id) => {
-		dispatch(deleteSingleImage(id));
+	const ImageDeleter = async(id) => {
+		await dispatch(deleteSingleImage(id));
 		history.push('/images');
 	};
 
