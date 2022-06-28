@@ -5,15 +5,15 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
-	const sessionUser = useSelector((state) => state.session.user);
+	const sessionUser = useSelector((state) => state.session?.user);
 
 	let sessionLinks;
 	if (sessionUser) {
 		sessionLinks = <ProfileButton user={sessionUser} />;
 	} else {
 		sessionLinks = (
-			<nav className="navBar">
-				<div className='buttons-container'>
+			<nav className="navBar2">
+				<div className="buttons-container">
 					<div>
 						<NavLink to="/login" className="button">
 							Log In
@@ -34,6 +34,13 @@ function Navigation({ isLoaded }) {
 			<NavLink exact to="/" className="home-button">
 				Liqr
 			</NavLink>
+			{sessionUser ? (
+				<NavLink exact to="/upload" className="upload-button">
+					Upload
+				</NavLink>
+			) : (
+				<NavLink exact to="/login" className="upload-button"></NavLink>
+			)}
 			{isLoaded && sessionLinks}
 		</nav>
 	);
