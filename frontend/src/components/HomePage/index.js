@@ -9,7 +9,7 @@ function HomePage() {
 			<section className="home-section">
 				<div className="text-container">
 					<NavLink exact to="/images" className="home-h2">
-						Explore The Collection
+						Click to View Collection
 					</NavLink>
 					{!sessionUser ? (
 						<p className="home-p">

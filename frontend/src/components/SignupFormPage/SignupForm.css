@@ -16,18 +16,29 @@
 	margin-right: 25%;
 	margin-left: 25%;
 	height: 93.16vh;
+	margin-top: 5rem;
 }
 
-.input-field {
-	margin-bottom: 2rem;
+.signup-input {
+	margin-bottom: 1rem;
+	border: black solid 2px;
+    color: black;
+    background: rgba(255, 255, 255,0.7);
+    font-size: 20px;
+    font-weight: 600;
+	border-radius: 8px;
+	padding: 1rem;
 }
 
 .signup-background-image {
 	background: url('https://wallpapermemory.com/uploads/346/liquor-background-hd-2560x1440-146176.jpg') no-repeat center center fixed;
 	background-size: cover;
-	height: 100%;
-	overflow: hidden;
-	position: relative;
+	background-size: cover;
+		height: 100vh;
+		width: 100%;
+		justify-content: center;
+		position: absolute;
+		top: 0
 
 }
 
@@ -38,4 +49,20 @@
 	font-weight: bolder;
 	text-shadow: 2px 2px black;
 
+}
+
+
+.navBar2{
+	z-index: 3;
+}
+
+.navBar {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: center;
+	background: rgba(0,0,0,0.5);
+	margin-bottom: 6px;
+	z-index: 3;
+	padding-bottom: 4px;
 }

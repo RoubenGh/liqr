@@ -22,6 +22,23 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	z-index: 3;
+	text-shadow: 2px 2px black;
+}
+
+.gallery-button {
+	display: flex;
+	margin-right: 16rem;
+	margin-left: 2rem;
+	cursor: pointer;
+	font-size: 1.5rem;
+	background-color: transparent;
+	color: white;
+	text-decoration: none;
+	margin-left: 1rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	z-index: 3;
+	text-shadow: 2px 2px black;
 }
 
 /* nav.navbar {
@@ -38,7 +55,7 @@
 	justify-content: space-evenly;
 	align-items: center;
 	align-content: center;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0, 0, 0, 0.5);
 	margin-bottom: 6px;
 	z-index: 3;
 	padding-bottom: 4px;
@@ -46,13 +63,11 @@
 
 .upload-button {
 	display: flex;
-	/* margin-right: auto; */
 	cursor: pointer;
 	font-size: 1.2rem;
 	background-color: transparent;
 	color: white;
 	text-decoration: none;
-	margin-left: 1rem;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	z-index: 3;
@@ -79,4 +94,5 @@ button {
 	border: white;
 	font-size: 1.3rem;
 	margin-top: auto;
+	cursor: pointer;
 }

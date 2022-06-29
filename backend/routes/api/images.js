@@ -3,7 +3,6 @@ const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-
 const db = require('../../db/models');
 
 const validationErrors = [
@@ -12,6 +11,15 @@ const validationErrors = [
 		.withMessage('Title is required')
 		.isLength({ min: 1, max: 75 })
 		.withMessage('Title must be between 1 and 75 characters'),
+	handleValidationErrors,
+];
+
+const validateErrorsComments = [
+	check('comment')
+		.exists({ checkNull: true })
+		.withMessage('Comment is required')
+		.isLength({ min: 1, max: 255 })
+		.withMessage('Comment must be between 1 and 255 characters'),
 	handleValidationErrors,
 ];
 
@@ -88,7 +96,52 @@ router.delete(
 	})
 );
 
-
 /* COMMENTS */
+
+router.get(
+	'/:id(\\d+)/comments',
+	asyncHandler(async (req, res) => {
+		const id = parseInt(req.params.id, 10);
+		console.log(id, '---------------')
+		const comments = await db.Comment.findAll({
+			where: { imageId: id },
+			include: db.User,
+		});
+		return res.json(comments);
+	})
+);
+
+router.post(
+	'/:id(\\d+)/comments',
+	validateErrorsComments,
+	asyncHandler(async (req, res) => {
+		const { userId, imageId, comment } = req.body;
+		const commentObj = await db.Comment.create({
+			userId,
+			imageId,
+			comment,
+		});
+		const findUser = await db.User.findByPk(userId);
+		// console.log(findUser, '---------------')
+		commentObj.dataValues['User']=findUser.dataValues
+		// console.log(commentObj, 'currrrrrrrrioooousssss')
+		return res.json(commentObj);
+	})
+);
+
+router.delete(
+	'/:id(\\d+)/comments/:commentId(\\d+)',
+	asyncHandler(async (req, res) => {
+		const commentId = parseInt(req.params.commentId, 10);
+		const comment = await db.Comment.findByPk(commentId);
+		if (!comment) {
+			return res.status(404).json({
+				message: 'Comment not found',
+			});
+		}
+		await comment.destroy();
+		return res.json({ message: 'Comment deleted' });
+	})
+);
 
 module.exports = router;

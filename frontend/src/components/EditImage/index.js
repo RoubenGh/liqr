@@ -8,10 +8,14 @@ const EditImage = () => {
 	const image = useParams();
 
 	const user = useSelector((state) => state.session.user);
+	const images = useSelector((state) => state.images);
 
-	const [title, setTitle] = useState('');
-	const [imageUrl, setImageUrl] = useState('');
-	const [content, setContent] = useState('');
+	const currentImage = images[image?.id]
+	// const images = Object.values(imagesObject);
+
+	const [title, setTitle] = useState(currentImage.title);
+	const [imageUrl, setImageUrl] = useState(currentImage.imageUrl);
+	const [content, setContent] = useState(currentImage.content);
 	const [validationErrors, setValidationErrors] = useState([]);
 
 	const history = useHistory();
@@ -41,7 +45,6 @@ const EditImage = () => {
 			content,
 			id: image?.id,
 		};
-		console.log(data);
 		await dispatch(imagesActions.editSingleImage(data));
 		history.push(`/images`);
 	};
@@ -68,7 +71,7 @@ const EditImage = () => {
 				onChange={(e) => setImageUrl(e.target.value)}
 			/>
 			<textarea
-				placeholder="Content"
+				placeholder="Content(OPTIONAL)"
 				value={content}
 				onChange={(e) => setContent(e.target.value)}
 			/>

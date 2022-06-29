@@ -34,10 +34,13 @@ function Navigation({ isLoaded }) {
 			<NavLink exact to="/" className="home-button">
 				Liqr
 			</NavLink>
+			<NavLink exact to="/images" className="gallery-button">
+				Gallery
+			</NavLink>
 			{sessionUser ? (
-					<NavLink exact to="/upload" className="upload-button">
-						Upload
-					</NavLink>
+				<NavLink exact to="/upload" className="upload-button">
+					Upload
+				</NavLink>
 			) : (
 				<NavLink exact to="/login" className="upload-button"></NavLink>
 			)}
