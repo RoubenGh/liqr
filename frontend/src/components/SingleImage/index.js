@@ -33,8 +33,6 @@ const SingleImage = () => {
 		};
 	}, [id, dispatch]);
 
-
-
 	const ImageDeleter = async (e) => {
 		await dispatch(deleteSingleImage(id));
 		history.push('/images');
@@ -42,10 +40,9 @@ const SingleImage = () => {
 
 	if (!oneImage) return null;
 
-
 	const notLoggedIn = () => {
 		if (!account) history.push('/login');
-	}
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -71,72 +68,106 @@ const SingleImage = () => {
 
 	return (
 		isLoaded && (
-			<div>
-				<div>
-					<h1 className="title">{oneImage.title}</h1>
-					<p className="username">{oneImage?.User?.username}</p>
-					<img src={oneImage.imageUrl} title={oneImage.title} />
-					<h3 className="content">{oneImage.content}</h3>
-					{oneImage?.User?.username === account?.username ? (
-						<button type="submit">
-							<NavLink exact to={`/images/${id}/edit`}>
-								Edit
-							</NavLink>
-						</button>
-					) : (
-						<></>
-					)}
-					{oneImage?.User?.username === account?.username ? (
-						<button onClick={ImageDeleter}>Delete</button>
-					) : (
-						<></>
-					)}
-				</div>
-				<h1 className="comments">Comments</h1>
-				<div className="comments">
-					{comments &&
-						comments.map((comment) => {
-							return (
-								<div key={comment.id}>
-									<p className="ptagz-comments">{comment?.comment}</p>
-									<p className="ptagz-usename">
-										{comment?.User?.username}
-									</p>
+			<div className="tester">
+				<div className="images-background-image">
+					<div className="single-image-container3">
+						{/* <div> */}
+						<h1 className="title">{oneImage.title}</h1>
+						<p className="username">{oneImage?.User?.username}</p>
+						<img
+							className="single-image-image"
+							src={oneImage.imageUrl}
+							title={oneImage.title}
+						/>
+						<div className='edit-delete-comment-btn'>
+							{oneImage?.User?.username === account?.username ? (
+								<button
+									className="single-image-submit-btn"
+									type="submit"
+								>
+									<NavLink
+										className="single-image-submit-btn"
+										exact
+										to={`/images/${id}/edit`}
+									>
+										Edit
+									</NavLink>
+								</button>
+							) : (
+								<></>
+							)}
+							{oneImage?.User?.username === account?.username ? (
+								<button
+								className="single-image-submit-btn"
+									onClick={ImageDeleter}
+								>
+									Delete
+								</button>
+							) : (
+								<></>
+							)}
+							{/* </div> */}
+						</div>
+						<h3 className="content">{oneImage.content}</h3>
+						<h1 className="comments-single-image">Comments</h1>
+						<div className="comments">
+							{comments &&
+								comments.map((comment) => {
+									return (
+										<div key={comment.id}>
+											<p className="ptagz-comments">
+												{comment?.comment}
+											</p>
+											<p className="ptagz-usename">
+												{comment?.User?.username}
+											</p>
 
-									{comment?.User?.username === account?.username ? (
-										<button
-											onClick={() =>
-												dispatch(
-													deleteCommentAsync(id, comment.id)
-												).then(() => dispatch(getCommentsAsync(id)))
-											}
-										>
-											Delete
-										</button>
-									) : (
-										<></>
-									)}
-								</div>
-							);
-						})}
-				</div>
+											{comment?.User?.username ===
+											account?.username ? (
+												<button
+													className="single-image-submit-btn"
+													onClick={() =>
+														dispatch(
+															deleteCommentAsync(id, comment.id)
+														).then(() =>
+															dispatch(getCommentsAsync(id))
+														)
+													}
+												>
+													Delete
+												</button>
+											) : (
+												<></>
+											)}
+										</div>
+									);
+								})}
+						</div>
 
-				<form onSubmit={handleSubmit}>
-					<ul>
-						{validationErrors.map((error, idx) => (
-							<li className="errors-signup" key={idx}>
-								{error}
-							</li>
-						))}
-					</ul>
-					<textarea
-						placeholder="Add a comment"
-						value={comment}
-						required
-						onChange={(e) => setComment(e.target.value)}
-					/>
-					<button onClick={notLoggedIn} type="submit">Submit</button>
-				</form>
+						<form onSubmit={handleSubmit}>
+							<ul>
+								{validationErrors.map((error, idx) => (
+									<li className="errors-signup" key={idx}>
+										{error}
+									</li>
+								))}
+							</ul>
+							<textarea
+								placeholder="Add a comment"
+								value={comment}
+								required
+								onChange={(e) => setComment(e.target.value)}
+							/>
+							<button
+								className="single-image-submit-btn"
+								onClick={notLoggedIn}
+								type="submit"
+							>
+								Submit
+							</button>
+						</form>
+					</div>
+				</div>
 			</div>
 		)
 	);

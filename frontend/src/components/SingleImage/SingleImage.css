@@ -1,21 +1,92 @@
 .content {
-    color: white;
+    font-weight: 500;
+    color: rgb(14,32,49);
+    text-shadow: 1px 1px black;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 1rem 5rem 1rem;
+}
+
+.comments-single-image {
+    color: rgb(14,32,49);
+    text-shadow: 1px 1px black;
+    display: flex;
+    justify-content: center;
 }
 
 .title {
-    color: white;
+    color: rgb(14,32,49);
+    text-shadow: 1px 1px black;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 1rem 0 1rem;
 }
 
 .username {
-    color: white;
+    color: rgb(14,32,49);
     font-size: larger;
+    text-shadow: 1px 1px black;
+    display: flex;
+    justify-content: center;
+    padding: 0rem 1rem 3rem 1rem;
 }
 
 .ptagz-comments {
-    color: white;
+    color: rgb(14,32,49);
     font-size: larger;
+    text-shadow: 1px 1px black;
+    display: flex;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 0;
 }
 
 .ptagz-usename {
-    color: white;
+    color: rgb(14,32,49);
+    text-shadow: 1px 1px black;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0rem 1rem 0 1rem;
+    margin-bottom: 5rem;
+    margin-top: 0.5rem;
+
+}
+
+.images-background-image {
+    background: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701412992.jpg')
+    repeat center center fixed;
+		background-size: cover;
+		height: infinite;
+		width: 100%;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+}
+
+.single-image-container3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 25%
+}
+
+.single-image-image {
+    display: flex;
+    justify-content: center;
+    margin-right: 25%;
+    margin-left: 25%;
+    width: 400px;
+    height: 600px;
+}
+
+.single-image-submit-btn {
+    color: rgb(14,32,49);
+    text-shadow: 1px 1px black;
+    text-decoration: none;
+}
+
+.edit-delete-comment-btn {
+    
 }
