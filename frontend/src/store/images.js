@@ -43,14 +43,14 @@ export const getImagesAsync = () => async (dispatch) => {
 	}
 };
 
-export const getImagesByUser = (userId) => async (dispatch) => {
-	const response = await csrfFetch(`/api/images/${userId}`);
+// export const getImagesByUser = (userId) => async (dispatch) => {
+// 	const response = await csrfFetch(`/api/images/${userId}`);
 
-	if (response.ok) {
-		const data = await response.json();
-		dispatch(getImages(data, userId));
-	}
-};
+// 	if (response.ok) {
+// 		const data = await response.json();
+// 		dispatch(getImages(data, userId));
+// 	}
+// };
 
 export const getSingleImage = (id) => async (dispatch) => {
 	const response = await csrfFetch(`/api/images/${id}`);

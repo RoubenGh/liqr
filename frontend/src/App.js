@@ -10,6 +10,8 @@ import Images from './components/Images';
 import SingleImage from './components/SingleImage';
 import UploadImage from './components/UploadImage';
 import EditImage from './components/EditImage';
+import { NavLink } from 'react-router-dom';
+import './404.css';
 
 function App() {
 	const dispatch = useDispatch();
@@ -45,8 +47,16 @@ function App() {
 						<EditImage />
 					</Route>
 					<Route>
-						<h1> Sorry, you've been cut off.</h1>
-						<img src="https://www.communitycare.com/DynamicFile/Alcohol-Awareness-Month-Blog-1200x600.png" />
+						<div className="tester">
+							<div className="not-found-img">
+								<div>
+									<NavLink exact to='/' className="sorry-text">
+										Sorry, you've been cut off,
+									would you like to go Home?
+									</NavLink>
+								</div>
+							</div>
+						</div>
 					</Route>
 				</Switch>
 			)}

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import Footer from '../Footer';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -30,24 +31,27 @@ function Navigation({ isLoaded }) {
 	}
 
 	return (
-		<nav className="navBar">
-			<NavLink exact to="/" className="home-button">
-				Liqr
-			</NavLink>
-
-			<NavLink exact to="/images" className="gallery-button">
-				Gallery
-			</NavLink>
-
-			{sessionUser ? (
-				<NavLink exact to="/upload" className="upload-button">
-					Upload
+		<div>
+			<nav className="navBar">
+				<NavLink exact to="/" className="home-button">
+					Liqr
 				</NavLink>
-			) : (
-				<NavLink exact to="/login" className="upload-button"></NavLink>
-			)}
-			{isLoaded && sessionLinks}
-		</nav>
+
+				<NavLink exact to="/images" className="gallery-button">
+					Gallery
+				</NavLink>
+
+				{sessionUser ? (
+					<NavLink exact to="/upload" className="upload-button">
+						Upload
+					</NavLink>
+				) : (
+					<NavLink exact to="/login" className="upload-button"></NavLink>
+				)}
+				{isLoaded && sessionLinks}
+			</nav>
+			<Footer />
+		</div>
 	);
 }
 

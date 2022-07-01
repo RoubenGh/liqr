@@ -71,7 +71,6 @@ const SingleImage = () => {
 			<div className="tester">
 				<div className="images-background-image">
 					<div className="single-image-container3">
-						{/* <div> */}
 						<h1 className="title">{oneImage.title}</h1>
 						<p className="username">{oneImage?.User?.username}</p>
 						<img
@@ -79,7 +78,7 @@ const SingleImage = () => {
 							src={oneImage.imageUrl}
 							title={oneImage.title}
 						/>
-						<div className='edit-delete-comment-btn'>
+						<div className="edit-delete-comment-btn">
 							{oneImage?.User?.username === account?.username ? (
 								<button
 									className="single-image-submit-btn"
@@ -98,7 +97,7 @@ const SingleImage = () => {
 							)}
 							{oneImage?.User?.username === account?.username ? (
 								<button
-								className="single-image-submit-btn"
+									className="single-image-submit-btn"
 									onClick={ImageDeleter}
 								>
 									Delete
@@ -106,7 +105,6 @@ const SingleImage = () => {
 							) : (
 								<></>
 							)}
-							{/* </div> */}
 						</div>
 						<h3 className="content">{oneImage.content}</h3>
 						<h1 className="comments-single-image">Comments</h1>
@@ -121,24 +119,28 @@ const SingleImage = () => {
 											<p className="ptagz-usename">
 												{comment?.User?.username}
 											</p>
-
-											{comment?.User?.username ===
-											account?.username ? (
-												<button
-													className="single-image-submit-btn"
-													onClick={() =>
-														dispatch(
-															deleteCommentAsync(id, comment.id)
-														).then(() =>
-															dispatch(getCommentsAsync(id))
-														)
-													}
-												>
-													Delete
-												</button>
-											) : (
-												<></>
-											)}
+											<div className='dlt-button-container'>
+												{comment?.User?.username ===
+												account?.username ? (
+													<button
+														className="delete-comment-btn"
+														onClick={() =>
+															dispatch(
+																deleteCommentAsync(
+																	id,
+																	comment.id
+																)
+															).then(() =>
+																dispatch(getCommentsAsync(id))
+															)
+														}
+													>
+														Delete
+													</button>
+												) : (
+													<></>
+												)}
+											</div>
 										</div>
 									);
 								})}
@@ -153,6 +155,7 @@ const SingleImage = () => {
 								))}
 							</ul>
 							<textarea
+								className='comment-text-area'
 								placeholder="Add a comment"
 								value={comment}
 								required

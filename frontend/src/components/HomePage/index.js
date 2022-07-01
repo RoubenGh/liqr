@@ -17,7 +17,7 @@ function HomePage() {
 							shared by alcohol enthusiasts.
 						</p>
 					) : (
-						<p className='home-p'>Haiiiii</p>
+						<p className='home-p'>Welcome to Liqr, Cheers!</p>
 					)}
 				</div>
 			</section>

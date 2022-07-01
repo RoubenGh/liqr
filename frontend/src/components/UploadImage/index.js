@@ -62,20 +62,21 @@ const UploadImage = () => {
 							type="text"
 							placeholder="Title"
 							value={title}
+							required
 							onChange={(e) => setTitle(e.target.value)}
 						/>
 						<input
 							className="upload-input"
 							type="text"
-							placeholder="Image URL"
+							placeholder="Image URL must end with 'jpg,jpeg,gif,png'"
 							value={imageUrl}
+							pattern='^http[^\?]*.(jpg|jpeg|gif|png)(\?(.*))?$'
 							onChange={(e) => setImageUrl(e.target.value)}
 						/>
 						<textarea
-							className='upload-text-area'
-							rows='7'
-							cols=''
-							placeholder="Content (OPTIONAL)"
+							className="upload-text-area"
+							rows="7"
+							placeholder="Description (OPTIONAL)"
 							value={content}
 							onChange={(e) => setContent(e.target.value)}
 						/>

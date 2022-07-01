@@ -1,0 +1,23 @@
+.sorry-text {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    margin-top: 40%;
+    text-decoration: none;
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.not-found-img
+ {
+    background: url("https://www.communitycare.com/DynamicFile/Alcohol-Awareness-Month-Blog-1200x600.png")
+		no-repeat center center fixed;
+    background-size: cover;
+		height: 100vh;
+		width: 100%;
+		justify-content: center;
+		position: absolute;
+		top: 0
+}
