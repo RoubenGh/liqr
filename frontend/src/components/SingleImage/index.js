@@ -112,7 +112,7 @@ const SingleImage = () => {
 							{comments &&
 								comments.map((comment) => {
 									return (
-										<div key={comment.id}>
+										<div className='new-comment-div' key={comment.id}>
 											<p className="ptagz-comments">
 												{comment?.comment}
 											</p>
